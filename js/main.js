@@ -2,12 +2,27 @@
 
 function validateForm(e) {
     e.preventDefault();
-    console.log('test');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const zgoda1 = document.getElementById('zgoda-marketingowa-1');
+
+    if(nameInput.value === '') {
+        console.log('puste imię')
+    }
+
+    if(emailInput.value === '') {
+        console.log('pusty email')
+    }
+
+    if(!zgoda1.checked) { // "its funny because its true"
+        console.log('brak zgody')
+    }
+
 }
 
 document.querySelector('form').addEventListener('submit', validateForm);
 
-let zgoda1 = document.getElementById('zgoda-marketingowa-1');
+// let zgoda1 = document.getElementById('zgoda-marketingowa-1');
 let zgoda2 = document.getElementById('zgoda-marketingowa-2');
 // let zgody = document.getElementById('wszystkie-zgody');
 
