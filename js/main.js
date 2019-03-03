@@ -1,21 +1,33 @@
 /* Walidacja pól */
 
 function validateForm(e) {
-    e.preventDefault();
+    
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const zgoda1 = document.getElementById('zgoda-marketingowa-1');
+    const message = document.getElementById('wiadomosc');
+
+    message.innerHTML = ''; // czyści wiadomosci w ul.
 
     if(nameInput.value === '') {
-        console.log('puste imię')
+        e.preventDefault();
+        const msgName = document.createElement('li');
+        msgName.innerText = 'Wpisz imię!';
+        message.appendChild(msgName);
     }
 
     if(emailInput.value === '') {
-        console.log('pusty email')
+        e.preventDefault();
+        const msgEmail = document.createElement('li');
+        msgEmail.innerText = 'Wpisz email!';
+        message.appendChild(msgEmail);
     }
 
     if(!zgoda1.checked) { // "its funny because its true"
-        console.log('brak zgody')
+        e.preventDefault();    
+        const msgAgreement = document.createElement('li');
+        msgAgreement.innerText = 'Wyraź zgodę!';
+        message.appendChild(msgAgreement);
     }
 
 }
